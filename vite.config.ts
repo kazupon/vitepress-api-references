@@ -1,20 +1,28 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig } from 'vite-plus'
+import {
+  defineLintConfig,
+  defineFmtConfig,
+  defaultIgnoreFilesOfEnforceHeaderCommentRule
+} from '@kazupon/vp-config'
 
 export default defineConfig({
   staged: {
-    "*": "vp check --fix",
+    '*': 'vp check --fix'
   },
   pack: {
     dts: {
-      tsgo: true,
+      tsgo: true
     },
-    exports: true,
+    exports: true
   },
-  lint: {
-    options: {
-      typeAware: true,
-      typeCheck: true,
-    },
-  },
-  fmt: {},
-});
+  lint: defineLintConfig({
+    comments: {
+      enForceHeaderComment: {
+        ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule]
+      }
+    }
+  }),
+  fmt: defineFmtConfig({
+    ignorePatterns: ['CHANGELOG.md']
+  })
+})
