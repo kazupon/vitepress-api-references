@@ -5,7 +5,9 @@ const config: KnipConfig = {
   ignoreDependencies: [
     '@kazupon/eslint-plugin',
     '@kazupon/vp-config',
-    '@typescript/native-preview'
+    '@typescript/native-preview',
+    'pkg-pr-new',
+    'gh-changelogen'
   ],
   rules: {
     catalog: 'off'
