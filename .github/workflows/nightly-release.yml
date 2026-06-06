@@ -36,4 +36,4 @@ jobs:
         run: vpr build
 
       - name: Release with pkg-pr-new
-        run: vpx pkg-pr-new publish
+        run: vp exec pkg-pr-new publish
