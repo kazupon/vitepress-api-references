@@ -1,23 +1,18 @@
-# vite-plus-starter
+# vitepress-api-references
 
-A starter for creating a Vite Plus project.
+[![npm][npm-src]][npm-href] [![CI][ci-src]][ci-href]
 
-## Development
+> [!WARNING] WIP
 
-- Install dependencies:
+Enable JSDoc API Reference.
 
-```bash
-vp install
-```
+## License
 
-- Run the unit tests:
+[MIT](http://opensource.org/licenses/MIT)
 
-```bash
-vp test
-```
+<!-- Badges -->
 
-- Build the library:
-
-```bash
-vp pack
-```
+[npm-src]: https://img.shields.io/npm/v/vitepress-api-references?style=flat
+[npm-href]: https://npmjs.com/package/vitepress-api-references
+[ci-src]: https://github.com/kazupon/vitepress-api-references/actions/workflows/ci.yml/badge.svg
+[ci-href]: https://github.com/kazupon/vitepress-api-references/actions/workflows/ci.yml

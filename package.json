@@ -1,7 +1,7 @@
 {
   "name": "vitepress-api-references",
   "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
+  "description": "Enable JSDoc API Reference",
   "homepage": "https://github.com/kazupon/vitepress-api-references#readme",
   "bugs": {
     "url": "https://github.com/kazupon/vitepress-api-references/issues"
