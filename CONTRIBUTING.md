@@ -39,7 +39,7 @@
 - Add codes and pass lint!
 - Commit your changes: `git commit -am 'Add some topic'`
 - Push to the branch: `git push origin my-new-topic`
-- Submit a pull request to `main` branch of `vitepress-api-refereneces` repository !
+- Submit a pull request to `main` branch of `vitepress-api-references` repository !
 
 ## Development Setup
 
