@@ -64,9 +64,6 @@ importers:
       vitepress:
         specifier: 2.0.0-alpha.17
         version: 2.0.0-alpha.17(@types/node@25.9.1)(jiti@2.7.0)(oxc-minify@0.134.0)(postcss@8.5.15)(typescript@6.0.3)(yaml@2.9.0)
-      vitepress-api-references:
-        specifier: workspace:*
-        version: 'link:'
 
 packages:
 

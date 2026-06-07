@@ -67,8 +67,7 @@
     "typescript": "^6.0.3",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vitepress": "2.0.0-alpha.17",
-    "vitepress-api-references": "workspace:*"
+    "vitepress": "2.0.0-alpha.17"
   },
   "peerDependencies": {
     "vite": ">=5",
