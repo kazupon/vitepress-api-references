@@ -1,12 +1,21 @@
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { describe, expect, test } from 'vite-plus/test'
+import { afterEach, describe, expect, test } from 'vite-plus/test'
 import { generateOxContentApiDocs } from '../src/generate.ts'
 
 describe('generateOxContentApiDocs', () => {
+  let root: string | undefined
+
+  afterEach(async () => {
+    if (root) {
+      await fs.rm(root, { recursive: true, force: true })
+      root = undefined
+    }
+  })
+
   test('generates markdown and nav from a TypeScript entry point', async () => {
-    const root = await createFixtureRoot()
+    root = await createFixtureRoot()
     const result = await generateOxContentApiDocs({
       root,
       entryPoints: [{ path: 'src/index.ts', name: 'default' }],
@@ -27,7 +36,7 @@ describe('generateOxContentApiDocs', () => {
   })
 
   test('can skip filesystem writes', async () => {
-    const root = await createFixtureRoot()
+    root = await createFixtureRoot()
     const result = await generateOxContentApiDocs({
       root,
       entryPoints: ['src/index.ts'],

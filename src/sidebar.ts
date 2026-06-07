@@ -48,11 +48,13 @@ export function mergeVitePressSidebar(
 
   if (isSidebarMulti(sidebar)) {
     const route = options.sidebarRoute
-    if (route) {
-      return {
-        ...sidebar,
-        [route]: mergeVitePressSidebar(sidebar[route], generated, options)
-      }
+    if (!route) {
+      return sidebar
+    }
+
+    return {
+      ...sidebar,
+      [route]: mergeVitePressSidebar(sidebar[route], generated, options)
     }
   }
 
@@ -109,7 +111,7 @@ function replaceSidebarItem(
         return generated
       }
 
-      if (item.items) {
+      if (replaceText && item.items) {
         const nested = replaceSidebarItem(item.items, generated, replaceText)
         if (nested !== item.items) {
           replaced = true

@@ -70,9 +70,13 @@ export function createApiDocsVitePlugin(
     }
 
     debounceTimer = setTimeout(() => {
-      void run().then(() => {
-        server.ws.send({ type: 'full-reload' })
-      })
+      void run()
+        .then(() => {
+          server.ws.send({ type: 'full-reload' })
+        })
+        .catch(error => {
+          console.error(error)
+        })
     }, 100)
   }
 }

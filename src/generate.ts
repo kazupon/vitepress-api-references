@@ -26,14 +26,23 @@ export async function generateOxContentApiDocs(
     tsconfig: resolvedOptions.tsconfig,
     ...resolvedOptions.extraction
   })
-  const docs = extractedDocs.map(module => ({
+  const docs: JsDocsMarkdownModule[] = extractedDocs.map(module => ({
     file: module.name,
     description: module.description,
     sourcePath: module.sourcePath,
     examples: module.examples,
     tags: module.tags,
-    entries: module.entries
-  })) as unknown as JsDocsMarkdownModule[]
+    entries: module.entries.map(entry => ({
+      ...entry,
+      tags: entry.tags
+        ? Object.entries(entry.tags).map(([tag, value]) => ({
+            tag,
+            value
+          }))
+        : undefined,
+      hasBody: entry.hasBody ?? false
+    }))
+  }))
   const markdownOptions = {
     ...resolvedOptions.markdown,
     basePath: resolvedOptions.basePath,
