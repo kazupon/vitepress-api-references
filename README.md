@@ -38,6 +38,15 @@ export default defineConfig(
 )
 ```
 
+## Local API reference docs (dogfooding)
+
+This repository uses its own public root API as the docs source under `docs/`.
+
+```bash
+vp run docs:build
+vp run docs:dev
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
