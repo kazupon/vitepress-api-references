@@ -10,6 +10,7 @@ export default defineConfig({
     '*': 'vp check --fix'
   },
   pack: {
+    entry: ['src/index.ts', 'src/vitepress.ts', 'src/api-docs.ts', 'src/nav.ts'],
     dts: {
       tsgo: true
     },

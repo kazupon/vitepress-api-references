@@ -1,14 +1,9 @@
 import type { KnipConfig } from 'knip'
 
 const config: KnipConfig = {
-  ignore: ['vite.config.ts', 'tests/**/*.test.ts'],
-  ignoreDependencies: [
-    '@kazupon/eslint-plugin',
-    '@kazupon/vp-config',
-    '@typescript/native-preview',
-    'pkg-pr-new',
-    'gh-changelogen'
-  ],
+  entry: ['src/index.ts', 'src/api-docs.ts', 'src/vitepress.ts', 'src/nav.ts'],
+  ignore: ['tests/**/*.test.ts', 'fixtures/**'],
+  ignoreDependencies: ['@kazupon/eslint-plugin', '@typescript/native-preview', 'pkg-pr-new'],
   rules: {
     catalog: 'off'
   }

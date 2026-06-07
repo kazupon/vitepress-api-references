@@ -97,4 +97,4 @@ jobs:
         run: vp install --no-frozen-lockfile
 
       - name: Building
-        run: vpr build
+        run: vp pack

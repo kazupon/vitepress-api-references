@@ -6,6 +6,38 @@
 
 Enable JSDoc API Reference.
 
+Public APIs are exported from the package root only.
+
+## Usage
+
+```ts
+import { defineConfig } from 'vitepress'
+import { withOxContentApiDocs } from 'vitepress-api-references'
+
+export default defineConfig(
+  await withOxContentApiDocs({
+    themeConfig: {
+      sidebar: [{ text: 'Guide', link: '/' }, { text: 'API References' }]
+    },
+    apiDocs: {
+      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      outDir: 'docs/api',
+      basePath: '/api',
+      markdown: {
+        pathStrategy: 'typedoc',
+        renderStyle: 'markdown',
+        indexFormat: 'table'
+      },
+      nav: {
+        section: { text: 'API References', collapsed: false },
+        insert: 'replace',
+        replaceText: 'API References'
+      }
+    }
+  })
+)
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
