@@ -3,12 +3,13 @@
  * @license MIT
  */
 
-import type { UserConfig } from 'vitepress'
 import { generateOxContentApiDocs } from './generate.ts'
 import { mergeApiDocsOptions } from './options.ts'
 import { createVitePressSidebarSection, mergeVitePressSidebar } from './sidebar.ts'
-import type { OxContentApiDocsOptions } from './types.ts'
 import { createApiDocsVitePlugin } from './watch.ts'
+
+import type { UserConfig } from 'vitepress'
+import type { OxContentApiDocsOptions } from './types.ts'
 
 declare module 'vitepress' {
   interface UserConfig {
@@ -16,6 +17,13 @@ declare module 'vitepress' {
   }
 }
 
+/**
+ * Adds generated API docs pages, sidebar data, and watch support to a VitePress config.
+ *
+ * @param config - VitePress user configuration.
+ * @param override - Optional API docs options applied over the configured options.
+ * @returns Updated VitePress user configuration.
+ */
 export async function withOxContentApiDocs(
   config: UserConfig,
   override?: OxContentApiDocsOptions

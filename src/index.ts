@@ -3,13 +3,14 @@
  * @license MIT
  */
 
-export { generateOxContentApiDocs } from './api-docs.ts'
+export { generateOxContentApiDocs } from './generate.ts'
 export { withOxContentApiDocs } from './vitepress.ts'
 export {
   createVitePressSidebarSection,
   mergeVitePressSidebar,
   toVitePressSidebarItems
-} from './nav.ts'
+} from './sidebar.ts'
+
 export type {
   ApiDocsNavItem,
   MergeVitePressSidebarOptions,

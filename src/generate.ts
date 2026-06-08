@@ -11,12 +11,19 @@ import {
   generateDocsNavCode,
   generateDocsNavMetadataFromDocs
 } from '@ox-content/napi'
-import type { JsDocsMarkdownModule } from '@ox-content/napi'
 import { writeGeneratedFile, writeGeneratedFiles } from './files.ts'
 import { createGenerationHash } from './hash.ts'
 import { resolveApiDocsOptions } from './options.ts'
+
+import type { JsDocsMarkdownModule } from '@ox-content/napi'
 import type { ApiDocsNavItem, OxContentApiDocsOptions, OxContentApiDocsResult } from './types.ts'
 
+/**
+ * Generates API reference markdown, navigation metadata, and optional artifacts.
+ *
+ * @param options - API docs generation options.
+ * @returns Generated API docs files, metadata, diagnostics, and resolved options.
+ */
 export async function generateOxContentApiDocs(
   options: OxContentApiDocsOptions
 ): Promise<OxContentApiDocsResult> {
@@ -118,7 +125,7 @@ function escapeHeadingAngleBrackets(files: Record<string, string>): Record<strin
       content
         .split('\n')
         .map(line =>
-          /^(#{1,6})\s/.test(line) ? line.replaceAll('<', '&lt;').replaceAll('>', '&gt;') : line
+          /^#{1,6}\s/.test(line) ? line.replaceAll('<', '&lt;').replaceAll('>', '&gt;') : line
         )
         .join('\n')
     ])

@@ -10,6 +10,13 @@ import type {
   VitePressSidebarItem
 } from './types.ts'
 
+/**
+ * Converts API docs navigation metadata into VitePress sidebar items.
+ *
+ * @param nav - API docs navigation metadata.
+ * @param options - VitePress navigation options.
+ * @returns Generated VitePress sidebar items.
+ */
 export function toVitePressSidebarItems(
   nav: ApiDocsNavItem[],
   options: VitePressNavOptions = {}
@@ -17,6 +24,13 @@ export function toVitePressSidebarItems(
   return nav.map(item => toSidebarItem(item, options, 0))
 }
 
+/**
+ * Creates a VitePress sidebar section from generated API docs navigation.
+ *
+ * @param nav - API docs navigation metadata.
+ * @param options - VitePress navigation options.
+ * @returns Generated VitePress sidebar section.
+ */
 export function createVitePressSidebarSection(
   nav: ApiDocsNavItem[],
   options: VitePressNavOptions = {}
@@ -35,6 +49,14 @@ export function createVitePressSidebarSection(
   }
 }
 
+/**
+ * Merges generated API docs sidebar data into an existing VitePress sidebar.
+ *
+ * @param sidebar - Existing VitePress sidebar configuration.
+ * @param generated - Generated API docs sidebar section.
+ * @param options - Sidebar merge options.
+ * @returns Updated VitePress sidebar configuration.
+ */
 export function mergeVitePressSidebar(
   sidebar: unknown,
   generated: VitePressSidebarItem,

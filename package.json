@@ -29,9 +29,6 @@
   },
   "exports": {
     ".": "./dist/index.mjs",
-    "./api-docs": "./dist/api-docs.mjs",
-    "./nav": "./dist/nav.mjs",
-    "./vitepress": "./dist/vitepress.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

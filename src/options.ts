@@ -5,8 +5,15 @@
 
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import type { OxContentApiDocsOptions, ResolvedOxContentApiDocsOptions } from './types.ts'
 
+/**
+ * Resolves user API docs options into absolute paths and default values.
+ *
+ * @param options - User-facing API docs options.
+ * @returns Resolved API docs options.
+ */
 export function resolveApiDocsOptions(
   options: OxContentApiDocsOptions
 ): ResolvedOxContentApiDocsOptions {
@@ -52,6 +59,13 @@ export function resolveApiDocsOptions(
   }
 }
 
+/**
+ * Merges base API docs options with override options.
+ *
+ * @param base - Base options from VitePress configuration.
+ * @param override - Override options applied on top of the base options.
+ * @returns Merged API docs options.
+ */
 export function mergeApiDocsOptions(
   base: OxContentApiDocsOptions,
   override?: OxContentApiDocsOptions

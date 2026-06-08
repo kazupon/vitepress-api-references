@@ -6,6 +6,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+/**
+ * Writes generated content only when the target file content changes.
+ *
+ * @param filePath - Output file path.
+ * @param content - File content to write.
+ * @returns Whether the file was written.
+ */
 export async function writeGeneratedFile(filePath: string, content: string): Promise<boolean> {
   await fs.mkdir(path.dirname(filePath), { recursive: true })
 
@@ -24,6 +31,13 @@ export async function writeGeneratedFile(filePath: string, content: string): Pro
   return true
 }
 
+/**
+ * Writes multiple generated files into an output directory.
+ *
+ * @param files - Generated file contents keyed by relative path.
+ * @param outDir - Output directory used to resolve relative paths.
+ * @returns Absolute paths for generated files.
+ */
 export async function writeGeneratedFiles(
   files: Record<string, string>,
   outDir: string

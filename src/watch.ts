@@ -3,17 +3,28 @@
  * @license MIT
  */
 
-import type { ViteDevServer, Plugin } from 'vite'
 import { generateOxContentApiDocs } from './generate.ts'
 import { createGenerationHash } from './hash.ts'
 import { resolveApiDocsOptions } from './options.ts'
+
+import type { ViteDevServer, Plugin } from 'vite'
 import type { ApiDocsNavItem, OxContentApiDocsOptions } from './types.ts'
 
+/** Options used to seed the API docs Vite plugin state. */
 export interface ApiDocsPluginOptions {
+  /** Initial generation hash from build-time generation. */
   initialHash?: string
+  /** Initial navigation metadata from build-time generation. */
   initialNav?: ApiDocsNavItem[]
 }
 
+/**
+ * Creates a Vite plugin that regenerates API docs during development.
+ *
+ * @param options - API docs generation options.
+ * @param pluginOptions - Initial plugin state options.
+ * @returns Vite plugin for API docs generation and reloads.
+ */
 export function createApiDocsVitePlugin(
   options: OxContentApiDocsOptions,
   pluginOptions: ApiDocsPluginOptions = {}

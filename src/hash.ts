@@ -5,8 +5,15 @@
 
 import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
+
 import type { ResolvedOxContentApiDocsOptions } from './types.ts'
 
+/**
+ * Creates a stable hash for API docs generation inputs.
+ *
+ * @param options - Resolved API docs options.
+ * @returns Hash string for the current generation inputs.
+ */
 export async function createGenerationHash(
   options: ResolvedOxContentApiDocsOptions
 ): Promise<string> {
