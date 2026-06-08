@@ -1,6 +1,6 @@
 {
   "name": "vitepress-api-references",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Enable JSDoc API Reference for VitePress",
   "keywords": [
     "api-references",
