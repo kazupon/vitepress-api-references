@@ -8,7 +8,7 @@ Enable JSDoc API Reference for VitePress.
 
 ### VitePress integration
 
-This repository uses the VitePress integration to generate and serve its own API reference docs. See [`docs/.vitepress/config.ts`](./docs/.vitepress/config.ts) and the generated [`docs/api`](./docs/api) directory for a working self-hosted example.
+This repository uses the VitePress integration to generate and serve its own API reference docs. The generated API reference site is published at <https://kazupon.github.io/vitepress-api-references/>. See [`docs/.vitepress/config.ts`](./docs/.vitepress/config.ts) and the generated [`docs/api`](./docs/api) directory for a working self-hosted example.
 
 ```ts
 import { defineConfig } from 'vitepress'
