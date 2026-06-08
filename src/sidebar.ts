@@ -161,26 +161,38 @@ function replaceSidebarItem(
   generated: VitePressSidebarItem,
   replaceText?: string
 ): unknown[] {
+  const result = replaceSidebarItemRecursive(items, generated, replaceText)
+  return result.replaced ? result.items : [...items, generated]
+}
+
+function replaceSidebarItemRecursive(
+  items: unknown[],
+  generated: VitePressSidebarItem,
+  replaceText?: string
+): { items: unknown[]; replaced: boolean } {
   let replaced = false
   const next = items.map(item => {
-    if (isSidebarItem(item)) {
-      if (replaceText && item.text === replaceText) {
-        replaced = true
-        return generated
-      }
+    if (!isSidebarItem(item)) {
+      return item
+    }
 
-      if (replaceText && item.items) {
-        const nested = replaceSidebarItem(item.items, generated, replaceText)
-        if (nested !== item.items) {
-          replaced = true
-          return { ...item, items: nested }
-        }
+    if (replaceText && item.text === replaceText) {
+      replaced = true
+      return generated
+    }
+
+    if (replaceText && Array.isArray(item.items)) {
+      const nested = replaceSidebarItemRecursive(item.items, generated, replaceText)
+      if (nested.replaced) {
+        replaced = true
+        return { ...item, items: nested.items }
       }
     }
+
     return item
   })
 
-  return replaced ? next : [...items, generated]
+  return { items: next, replaced }
 }
 
 function resolveCollapsed(
