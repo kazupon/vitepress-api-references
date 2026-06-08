@@ -21,7 +21,12 @@ export default defineConfig({
       enForceHeaderComment: {
         ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule]
       }
-    }
+    },
+    jsdoc: {
+      typescript: 'syntax',
+      error: true
+    },
+    regexp: {}
   }),
   fmt: defineFmtConfig({
     ignorePatterns: ['CHANGELOG.md']
