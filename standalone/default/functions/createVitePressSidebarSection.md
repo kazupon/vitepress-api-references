@@ -5,10 +5,7 @@ Creates a VitePress sidebar section from generated API docs navigation.
 ## Signature
 
 ```ts
-export function createVitePressSidebarSection(
-  nav: ApiDocsNavItem[],
-  options: VitePressNavOptions = {}
-): VitePressSidebarItem
+export function createVitePressSidebarSection(nav: ApiDocsNavItem[], options: VitePressNavOptions = {}): VitePressSidebarItem
 ```
 
 ## Parameters

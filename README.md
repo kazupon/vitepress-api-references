@@ -66,7 +66,7 @@ console.log(`Generated ${result.generatedFiles.length} files`)
 Run the example with:
 
 ```sh
-vp run standalone
+vp run docs:standalone
 ```
 
 ## Local API reference docs

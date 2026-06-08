@@ -5,9 +5,7 @@ Generates API reference markdown, navigation metadata, and optional artifacts.
 ## Signature
 
 ```ts
-export async function generateOxContentApiDocs(
-  options: OxContentApiDocsOptions
-): Promise<OxContentApiDocsResult>
+export async function generateOxContentApiDocs(options: OxContentApiDocsOptions): Promise<OxContentApiDocsResult>
 ```
 
 ## Parameters

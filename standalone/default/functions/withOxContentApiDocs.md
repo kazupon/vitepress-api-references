@@ -5,10 +5,7 @@ Adds generated API docs pages, sidebar data, and watch support to a VitePress co
 ## Signature
 
 ```ts
-export async function withOxContentApiDocs(
-  config: UserConfig,
-  override?: OxContentApiDocsOptions
-): Promise<UserConfig>
+export async function withOxContentApiDocs(config: UserConfig, override?: OxContentApiDocsOptions): Promise<UserConfig>
 ```
 
 ## Parameters

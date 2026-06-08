@@ -5,10 +5,7 @@ Converts API docs navigation metadata into VitePress sidebar items.
 ## Signature
 
 ```ts
-export function toVitePressSidebarItems(
-  nav: ApiDocsNavItem[],
-  options: VitePressNavOptions = {}
-): VitePressSidebarItem[]
+export function toVitePressSidebarItems(nav: ApiDocsNavItem[], options: VitePressNavOptions = {}): VitePressSidebarItem[]
 ```
 
 ## Parameters

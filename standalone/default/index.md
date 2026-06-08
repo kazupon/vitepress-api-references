@@ -13,7 +13,7 @@ _14 symbols · 5 functions · 9 interfaces · 10 parameters · 50 members · 5 r
 ## Functions
 
 | Function | Description |
-| --- | --- |
+| ------ | ------ |
 | [createVitePressSidebarSection](/standalone/default/functions/createVitePressSidebarSection.md) | Creates a VitePress sidebar section from generated API docs navigation. |
 | [generateOxContentApiDocs](/standalone/default/functions/generateOxContentApiDocs.md) | Generates API reference markdown, navigation metadata, and optional artifacts. |
 | [mergeVitePressSidebar](/standalone/default/functions/mergeVitePressSidebar.md) | Merges generated API docs sidebar data into an existing VitePress sidebar. |
@@ -23,7 +23,7 @@ _14 symbols · 5 functions · 9 interfaces · 10 parameters · 50 members · 5 r
 ## Interfaces
 
 | Interface | Description |
-| --- | --- |
+| ------ | ------ |
 | [ApiDocsNavItem](/standalone/default/interfaces/ApiDocsNavItem.md) | Navigation item generated from API docs metadata. |
 | [MergeVitePressSidebarOptions](/standalone/default/interfaces/MergeVitePressSidebarOptions.md) | Options for merging generated sidebar items into an existing VitePress sidebar. |
 | [OxContentApiDocsOptions](/standalone/default/interfaces/OxContentApiDocsOptions.md) | User-facing options for generating API reference markdown and VitePress integration. |
@@ -33,3 +33,4 @@ _14 symbols · 5 functions · 9 interfaces · 10 parameters · 50 members · 5 r
 | [ResolvedOxContentApiDocsOptions](/standalone/default/interfaces/ResolvedOxContentApiDocsOptions.md) | API docs options after defaults are applied and all paths are normalized. |
 | [VitePressNavOptions](/standalone/default/interfaces/VitePressNavOptions.md) | Configures generated VitePress sidebar data and optional navigation artifacts. |
 | [VitePressSidebarItem](/standalone/default/interfaces/VitePressSidebarItem.md) | Minimal VitePress sidebar item shape used by generated API docs. |
+

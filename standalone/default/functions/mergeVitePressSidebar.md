@@ -5,11 +5,7 @@ Merges generated API docs sidebar data into an existing VitePress sidebar.
 ## Signature
 
 ```ts
-export function mergeVitePressSidebar(
-  sidebar: unknown,
-  generated: VitePressSidebarItem,
-  options: MergeVitePressSidebarOptions = {}
-): unknown
+export function mergeVitePressSidebar(sidebar: unknown, generated: VitePressSidebarItem, options: MergeVitePressSidebarOptions = {}): unknown
 ```
 
 ## Parameters
