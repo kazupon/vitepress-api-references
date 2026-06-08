@@ -20,6 +20,23 @@ declare module 'vitepress' {
 /**
  * Adds generated API docs pages, sidebar data, and watch support to a VitePress config.
  *
+ * @example
+ * ```ts
+ * import { defineConfig } from 'vitepress'
+ * import { withOxContentApiDocs } from 'vitepress-api-references'
+ *
+ * export default await withOxContentApiDocs(
+ *   defineConfig({
+ *     title: 'My Library',
+ *     apiDocs: {
+ *       entryPoints: ['src/index.ts'],
+ *       outDir: 'api',
+ *       basePath: '/api'
+ *     }
+ *   })
+ * )
+ * ```
+ *
  * @param config - VitePress user configuration.
  * @param override - Optional API docs options applied over the configured options.
  * @returns Updated VitePress user configuration.

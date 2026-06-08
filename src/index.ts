@@ -1,4 +1,15 @@
 /**
+ * Entrypoint for `vitepress-api-references` package
+ *
+ * @example
+ * ```ts
+ * import { withOxContentApiDocs } from 'vitepress-api-references'
+ * ```
+ *
+ * @module default
+ */
+
+/**
  * @author kazuya kawaguchi (a.k.a. kazupon)
  * @license MIT
  */

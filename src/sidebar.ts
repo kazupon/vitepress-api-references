@@ -13,6 +13,19 @@ import type {
 /**
  * Converts API docs navigation metadata into VitePress sidebar items.
  *
+ * @example
+ * ```ts
+ * import { toVitePressSidebarItems } from 'vitepress-api-references'
+ *
+ * const sidebarItems = toVitePressSidebarItems([
+ *   {
+ *     title: 'API',
+ *     path: '/api/',
+ *     children: [{ title: 'withOxContentApiDocs', path: '/api/with-ox-content-api-docs' }]
+ *   }
+ * ])
+ * ```
+ *
  * @param nav - API docs navigation metadata.
  * @param options - VitePress navigation options.
  * @returns Generated VitePress sidebar items.
@@ -26,6 +39,18 @@ export function toVitePressSidebarItems(
 
 /**
  * Creates a VitePress sidebar section from generated API docs navigation.
+ *
+ * @example
+ * ```ts
+ * import { createVitePressSidebarSection } from 'vitepress-api-references'
+ *
+ * const apiSection = createVitePressSidebarSection(apiDocsNav, {
+ *   section: {
+ *     text: 'API Reference',
+ *     collapsed: false
+ *   }
+ * })
+ * ```
  *
  * @param nav - API docs navigation metadata.
  * @param options - VitePress navigation options.
@@ -51,6 +76,17 @@ export function createVitePressSidebarSection(
 
 /**
  * Merges generated API docs sidebar data into an existing VitePress sidebar.
+ *
+ * @example
+ * ```ts
+ * import { mergeVitePressSidebar } from 'vitepress-api-references'
+ *
+ * const sidebar = mergeVitePressSidebar(
+ *   [{ text: 'Guide', link: '/guide/' }],
+ *   { text: 'API Reference', items: [{ text: 'Config', link: '/api/config' }] },
+ *   { insert: 'append' }
+ * )
+ * ```
  *
  * @param sidebar - Existing VitePress sidebar configuration.
  * @param generated - Generated API docs sidebar section.

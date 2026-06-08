@@ -21,6 +21,19 @@ import type { ApiDocsNavItem, OxContentApiDocsOptions, OxContentApiDocsResult } 
 /**
  * Generates API reference markdown, navigation metadata, and optional artifacts.
  *
+ * @example
+ * ```ts
+ * import { generateOxContentApiDocs } from 'vitepress-api-references'
+ *
+ * const result = await generateOxContentApiDocs({
+ *   entryPoints: ['src/index.ts'],
+ *   outDir: 'docs/api',
+ *   basePath: '/api'
+ * })
+ *
+ * console.log(result.generatedFiles)
+ * ```
+ *
  * @param options - API docs generation options.
  * @returns Generated API docs files, metadata, diagnostics, and resolved options.
  */
