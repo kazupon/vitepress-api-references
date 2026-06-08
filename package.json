@@ -1,7 +1,7 @@
 {
   "name": "vitepress-api-references",
   "version": "0.0.0",
-  "description": "Enable JSDoc API Reference",
+  "description": "Enable JSDoc API Reference for VitePress",
   "homepage": "https://github.com/kazupon/vitepress-api-references#readme",
   "bugs": {
     "url": "https://github.com/kazupon/vitepress-api-references/issues"

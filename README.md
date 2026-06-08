@@ -2,9 +2,7 @@
 
 [![npm][npm-src]][npm-href] [![CI][ci-src]][ci-href]
 
-Enable JSDoc API Reference.
-
-Public APIs are exported from the package root only.
+Enable JSDoc API Reference for VitePress.
 
 ## Usage
 
@@ -75,6 +73,10 @@ This repository uses its own public root API as the docs source under `docs/`.
 vp run docs:build
 vp run docs:dev
 ```
+
+## Credits
+
+Built on top of [Ox Content](https://github.com/ubugeeei-prod/ox-content), which extracts JSDoc API metadata and renders the generated markdown.
 
 ## License
 
