@@ -25,6 +25,7 @@ interface VitePressSidebarSectionOptions {
   text: string
   /**
    * Whether the generated top-level sidebar section starts collapsed in VitePress.
+   * When omitted, a boolean `nav.collapsed` value is used.
    *
    * @default undefined
    */
@@ -119,6 +120,7 @@ export interface VitePressNavOptions {
   sidebarRoute?: string
   /**
    * Collapsed state for generated sidebar branches, or a resolver called per item.
+   * A boolean value also controls the top-level section when `section.collapsed` is omitted.
    *
    * @default undefined
    */

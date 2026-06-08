@@ -69,7 +69,7 @@ export function createVitePressSidebarSection(
 
   return {
     text: section.text,
-    collapsed: section.collapsed,
+    collapsed: resolveSectionCollapsed(options),
     items
   }
 }
@@ -138,13 +138,13 @@ function toSidebarItem(
   const sidebarItem: VitePressSidebarItem = {
     text: item.title
   }
-  const collapsed = resolveCollapsed(item, options, depth)
-
-  if (collapsed !== undefined) {
-    sidebarItem.collapsed = collapsed
-  }
 
   if (children?.length) {
+    const collapsed = resolveCollapsed(item, options, depth)
+    if (collapsed !== undefined) {
+      sidebarItem.collapsed = collapsed
+    }
+
     sidebarItem.items = children
     if (depth === 0 && item.path) {
       sidebarItem.link = item.path
@@ -193,6 +193,13 @@ function replaceSidebarItemRecursive(
   })
 
   return { items: next, replaced }
+}
+
+function resolveSectionCollapsed(options: VitePressNavOptions): boolean | undefined {
+  return (
+    options.section?.collapsed ??
+    (typeof options.collapsed === 'boolean' ? options.collapsed : undefined)
+  )
 }
 
 function resolveCollapsed(

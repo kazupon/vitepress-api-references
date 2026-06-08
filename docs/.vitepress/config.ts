@@ -35,7 +35,8 @@ export default defineConfig(
         propertyMembersFormat: 'table'
       },
       nav: {
-        section: { text: 'API References', collapsed: false },
+        section: { text: 'API References' },
+        collapsed: true,
         insert: 'replace',
         replaceText: 'API References'
       }

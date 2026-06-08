@@ -47,6 +47,32 @@ describe('toVitePressSidebarItems', () => {
       items: toVitePressSidebarItems(nav)
     })
   })
+
+  test('uses boolean collapsed option for generated branches and section fallback', () => {
+    expect(
+      createVitePressSidebarSection(nav, {
+        section: { text: 'API References' },
+        collapsed: true
+      })
+    ).toEqual({
+      text: 'API References',
+      collapsed: true,
+      items: [
+        {
+          text: 'default',
+          collapsed: true,
+          link: '/api/default',
+          items: [
+            {
+              text: 'Functions',
+              collapsed: true,
+              items: [{ text: 'greet', link: '/api/default/functions/greet' }]
+            }
+          ]
+        }
+      ]
+    })
+  })
 })
 
 describe('mergeVitePressSidebar', () => {
