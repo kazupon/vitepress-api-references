@@ -10,6 +10,7 @@ export default defineConfig({
     '*': 'vp check --fix'
   },
   pack: {
+    entry: ['src/index.ts'],
     dts: {
       tsgo: true
     },
@@ -18,11 +19,16 @@ export default defineConfig({
   lint: defineLintConfig({
     comments: {
       enForceHeaderComment: {
-        ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule]
+        ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule, 'standalone/generate.ts']
       }
-    }
+    },
+    jsdoc: {
+      typescript: 'syntax',
+      error: true
+    },
+    regexp: {}
   }),
   fmt: defineFmtConfig({
-    ignorePatterns: ['CHANGELOG.md']
+    ignorePatterns: ['CHANGELOG.md', 'standalone/**/*.md', 'docs/**/*.md']
   })
 })

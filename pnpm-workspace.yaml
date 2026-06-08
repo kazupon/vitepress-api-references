@@ -1,9 +1,20 @@
+autoInstallPeers: false
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@latest
   vitest: npm:@voidzero-dev/vite-plus-test@latest
   vite-plus: latest
+minimumReleaseAgeExclude:
+  - '@kazupon/vp-config'
+  - '@ox-jsdoc/**'
+  - ox-jsdoc
+  - '@ox-content/binding-darwin-arm64@2.63.0'
+  - '@ox-content/binding-darwin-x64@2.63.0'
+  - '@ox-content/binding-linux-arm64-gnu@2.63.0'
+  - '@ox-content/binding-linux-x64-gnu@2.63.0'
+  - '@ox-content/binding-win32-x64-msvc@2.63.0'
+  - '@ox-content/napi@2.63.0'
 overrides:
-  vite: 'catalog:'
+  vitepress>vite: 'catalog:'
   vitest: 'catalog:'
 peerDependencyRules:
   allowAny:

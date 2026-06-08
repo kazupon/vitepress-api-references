@@ -1,5 +1,10 @@
 /**
- * vitepress api references entry point
+ * Entrypoint for `vitepress-api-references` package
+ *
+ * @example
+ * ```ts
+ * import { withOxContentApiDocs } from 'vitepress-api-references'
+ * ```
  *
  * @module default
  */
@@ -9,11 +14,22 @@
  * @license MIT
  */
 
-import { createDebug } from 'obug'
+export { generateOxContentApiDocs } from './generate.ts'
+export { withOxContentApiDocs } from './vitepress.ts'
+export {
+  createVitePressSidebarSection,
+  mergeVitePressSidebar,
+  toVitePressSidebarItems
+} from './sidebar.ts'
 
-const debug = createDebug('vitepress-api-references')
-
-export function fn() {
-  debug('fn called')
-  return 'Hello, tsdown!'
-}
+export type {
+  ApiDocsNavItem,
+  MergeVitePressSidebarOptions,
+  OxContentApiDocsOptions,
+  OxContentApiDocsResult,
+  OxContentExtractionOptions,
+  OxContentMarkdownOptions,
+  ResolvedOxContentApiDocsOptions,
+  VitePressNavOptions,
+  VitePressSidebarItem
+} from './types.ts'

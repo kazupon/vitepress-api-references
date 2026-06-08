@@ -1,5 +1,11 @@
 node_modules
+.pnpm-store
 dist
+docs/api
+docs/.vitepress/dist
+docs/.vitepress/cache
+fixtures/basic/docs/api
+fixtures/basic/docs/.vitepress/dist
 *.log
 .DS_Store
 !.vscode/

@@ -1,6 +1,14 @@
 import { expect, test } from 'vite-plus/test'
-import { fn } from '../src/index.ts'
+import {
+  generateOxContentApiDocs,
+  mergeVitePressSidebar,
+  toVitePressSidebarItems,
+  withOxContentApiDocs
+} from '../src/index.ts'
 
-test('fn', () => {
-  expect(fn()).toBe('Hello, tsdown!')
+test('exports public API', () => {
+  expect(generateOxContentApiDocs).toBeTypeOf('function')
+  expect(withOxContentApiDocs).toBeTypeOf('function')
+  expect(toVitePressSidebarItems).toBeTypeOf('function')
+  expect(mergeVitePressSidebar).toBeTypeOf('function')
 })

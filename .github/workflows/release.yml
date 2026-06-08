@@ -65,7 +65,7 @@ jobs:
         run: vp install --no-frozen-lockfile
 
       - name: Build
-        run: vp build
+        run: vp pack
 
       - name: Publish to npm
         # OIDC trusted publisher: requires id-token: write, no NPM_TOKEN needed.
