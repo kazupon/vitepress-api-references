@@ -1,9 +1,9 @@
 import type { KnipConfig } from 'knip'
 
 const config: KnipConfig = {
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'standalone/generate.ts'],
   ignore: ['tests/**/*.test.ts', 'tests/fixtures/**', 'docs/.vitepress/config.ts'],
-  ignoreDependencies: ['@kazupon/eslint-plugin', '@typescript/native-preview', 'pkg-pr-new'],
+  ignoreDependencies: ['@typescript/native-preview', 'pkg-pr-new'],
   rules: {
     catalog: 'off'
   }
