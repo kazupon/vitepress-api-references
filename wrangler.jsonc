@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vitepress-api-references",
+  "compatibility_date": "2026-06-08",
+  "assets": {
+    "directory": "./docs/.vitepress/dist"
+  }
+}
