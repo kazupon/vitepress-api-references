@@ -72,8 +72,7 @@
     "typescript": "^6.0.3",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vitepress": "2.0.0-alpha.17",
-    "wrangler": "^4.98.0"
+    "vitepress": "2.0.0-alpha.17"
   },
   "peerDependencies": {
     "vite": ">=5",

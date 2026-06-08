@@ -10,6 +10,7 @@ export default defineConfig(
   await withOxContentApiDocs({
     title: 'vitepress-api-references',
     description: 'Enable JSDoc API Reference',
+    base: '/vitepress-api-references/',
     themeConfig: {
       nav: [{ text: 'API References', link: '/api/' }],
       sidebar: [
