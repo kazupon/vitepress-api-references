@@ -2,8 +2,6 @@
 
 [![npm][npm-src]][npm-href] [![CI][ci-src]][ci-href]
 
-> [!WARNING] WIP
-
 Enable JSDoc API Reference.
 
 Public APIs are exported from the package root only.
