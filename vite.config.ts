@@ -19,7 +19,7 @@ export default defineConfig({
   lint: defineLintConfig({
     comments: {
       enForceHeaderComment: {
-        ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule]
+        ignoreFiles: [...defaultIgnoreFilesOfEnforceHeaderCommentRule, 'standalone/generate.ts']
       }
     },
     jsdoc: {
@@ -29,6 +29,6 @@ export default defineConfig({
     regexp: {}
   }),
   fmt: defineFmtConfig({
-    ignorePatterns: ['CHANGELOG.md']
+    ignorePatterns: ['CHANGELOG.md', 'standalone/**/*.md', 'docs/**/*.md']
   })
 })

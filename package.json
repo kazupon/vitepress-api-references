@@ -41,7 +41,8 @@
     "docs:build": "vp pack && vp exec vitepress build docs",
     "docs:dev": "vp pack && vp exec vitepress dev docs",
     "test": "vp test",
-    "test:fixtures": "vp exec vitepress build fixtures/basic/docs",
+    "test:fixtures": "vp exec vitepress build tests/fixtures/basic/docs",
+    "standalone": "vp run build && vp exec node --import ./node_modules/.pnpm/jiti@2.7.0/node_modules/jiti/lib/jiti-register.mjs standalone/generate.ts",
     "check": "vp check && knip",
     "prepublishOnly": "vp run build",
     "release": "bumpp --commit \"release: v%s\" --all --push --tag",
@@ -49,7 +50,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@ox-content/napi": "^2.57.0"
+    "@ox-content/napi": "^2.63.0"
   },
   "devDependencies": {
     "@kazupon/vp-config": "^0.3.2",

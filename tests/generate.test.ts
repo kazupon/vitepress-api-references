@@ -33,6 +33,11 @@ describe('generateOxContentApiDocs', () => {
     expect(result.generatedFiles.length).toBeGreaterThan(0)
     expect(result.nav.length).toBeGreaterThan(0)
     expect(result.generatedFiles.some(file => file.endsWith('docs.json'))).toBe(true)
+    expect(
+      Object.values(result.files).some(
+        content => content.includes('**Default:**') && content.includes('Guest')
+      )
+    ).toBe(true)
   })
 
   test('can skip filesystem writes', async () => {
@@ -63,6 +68,16 @@ async function createFixtureRoot(): Promise<string> {
       ' */',
       'export function greet(name: string): string {',
       '  return `Hello, ${name}`',
+      '}',
+      '',
+      '/** Greeting options. */',
+      'export interface GreetingOptions {',
+      '  /**',
+      '   * Fallback name used when no explicit name is provided.',
+      '   *',
+      '   * @default Guest',
+      '   */',
+      '  fallbackName?: string',
       '}',
       ''
     ].join('\n')

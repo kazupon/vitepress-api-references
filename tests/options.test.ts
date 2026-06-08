@@ -4,7 +4,7 @@ import { expect, test } from 'vite-plus/test'
 import { resolveApiDocsOptions } from '../src/options.ts'
 
 test('resolves paths relative to root', () => {
-  const root = path.resolve('fixtures/basic')
+  const root = path.resolve('tests/fixtures/basic')
   const resolved = resolveApiDocsOptions({
     root: pathToFileURL(root),
     tsconfig: 'tsconfig.json',

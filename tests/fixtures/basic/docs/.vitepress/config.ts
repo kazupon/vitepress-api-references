@@ -4,7 +4,7 @@
  */
 
 import { defineConfig } from 'vitepress'
-import { withOxContentApiDocs } from '../../../../src/vitepress.ts'
+import { withOxContentApiDocs } from '../../../../../src/vitepress.ts'
 
 export default defineConfig(
   await withOxContentApiDocs({
