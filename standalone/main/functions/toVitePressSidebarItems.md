@@ -10,12 +10,12 @@ export function toVitePressSidebarItems(nav: ApiDocsNavItem[], options: VitePres
 
 ## Parameters
 
-- `nav` ([`ApiDocsNavItem`](/standalone/default/interfaces/ApiDocsNavItem.md)\[\]) - API docs navigation metadata.
-- `options` ([`VitePressNavOptions`](/standalone/default/interfaces/VitePressNavOptions.md)) - VitePress navigation options. _(optional, default: {})_
+- `nav` ([`ApiDocsNavItem`](/standalone/main/interfaces/ApiDocsNavItem.md)\[\]) - API docs navigation metadata.
+- `options` ([`VitePressNavOptions`](/standalone/main/interfaces/VitePressNavOptions.md)) - VitePress navigation options. _(optional, default: {})_
 
 ## Returns
 
-[`VitePressSidebarItem`](/standalone/default/interfaces/VitePressSidebarItem.md)\[\] — Generated VitePress sidebar items.
+[`VitePressSidebarItem`](/standalone/main/interfaces/VitePressSidebarItem.md)\[\] — Generated VitePress sidebar items.
 
 ## Examples
 

@@ -20,7 +20,7 @@ export default defineConfig(
       sidebar: [{ text: 'Guide', link: '/' }, { text: 'API References' }]
     },
     apiDocs: {
-      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      entryPoints: [{ path: 'src/index.ts' }],
       outDir: 'docs/api',
       basePath: '/api',
       markdown: {
@@ -46,7 +46,7 @@ Use `generateOxContentApiDocs` when you want to generate markdown files directly
 import { generateOxContentApiDocs } from 'vitepress-api-references'
 
 const result = await generateOxContentApiDocs({
-  entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+  entryPoints: [{ path: 'src/index.ts', name: 'main' }],
   outDir: 'standalone',
   basePath: '/standalone',
   markdown: {

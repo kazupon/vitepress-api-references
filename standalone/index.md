@@ -8,4 +8,4 @@ _1 modules · 14 symbols · 5 functions · 9 interfaces · 10 parameters · 50 m
 
 | Module | Description |
 | ------ | ------ |
-| [default](/standalone/default/index.md) | Entrypoint for `vitepress-api-references` package |
+| [main](/standalone/main/index.md) | Entrypoint for `vitepress-api-references` package |

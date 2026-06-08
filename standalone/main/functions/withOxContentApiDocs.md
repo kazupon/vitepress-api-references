@@ -11,7 +11,7 @@ export async function withOxContentApiDocs(config: UserConfig, override?: OxCont
 ## Parameters
 
 - `config` (`UserConfig`) - VitePress user configuration.
-- `override` ([`OxContentApiDocsOptions`](/standalone/default/interfaces/OxContentApiDocsOptions.md)) - Optional API docs options applied over the configured options. _(optional)_
+- `override` ([`OxContentApiDocsOptions`](/standalone/main/interfaces/OxContentApiDocsOptions.md)) - Optional API docs options applied over the configured options. _(optional)_
 
 ## Returns
 
@@ -23,13 +23,21 @@ export async function withOxContentApiDocs(config: UserConfig, override?: OxCont
 import { defineConfig } from 'vitepress'
 import { withOxContentApiDocs } from 'vitepress-api-references'
 
-export default await withOxContentApiDocs(
-  defineConfig({
+export default defineConfig(
+  await withOxContentApiDocs({
     title: 'My Library',
+    themeConfig: {
+      sidebar: [{ text: 'Guide', link: '/' }, { text: 'API Reference' }]
+    },
     apiDocs: {
-      entryPoints: ['src/index.ts'],
-      outDir: 'api',
-      basePath: '/api'
+      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      outDir: 'docs/api',
+      basePath: '/api',
+      nav: {
+        section: { text: 'API Reference', collapsed: false },
+        insert: 'replace',
+        replaceText: 'API Reference'
+      }
     }
   })
 )

@@ -1,7 +1,7 @@
 import { generateOxContentApiDocs } from '../src/index.ts'
 
 const result = await generateOxContentApiDocs({
-  entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+  entryPoints: [{ path: 'src/index.ts', name: 'main' }],
   outDir: 'standalone',
   basePath: '/standalone',
   markdown: {

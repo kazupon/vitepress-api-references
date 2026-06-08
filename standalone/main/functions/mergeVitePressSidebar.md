@@ -11,8 +11,8 @@ export function mergeVitePressSidebar(sidebar: unknown, generated: VitePressSide
 ## Parameters
 
 - `sidebar` (`unknown`) - Existing VitePress sidebar configuration.
-- `generated` ([`VitePressSidebarItem`](/standalone/default/interfaces/VitePressSidebarItem.md)) - Generated API docs sidebar section.
-- `options` ([`MergeVitePressSidebarOptions`](/standalone/default/interfaces/MergeVitePressSidebarOptions.md)) - Sidebar merge options. _(optional, default: {})_
+- `generated` ([`VitePressSidebarItem`](/standalone/main/interfaces/VitePressSidebarItem.md)) - Generated API docs sidebar section.
+- `options` ([`MergeVitePressSidebarOptions`](/standalone/main/interfaces/MergeVitePressSidebarOptions.md)) - Sidebar merge options. _(optional, default: {})_
 
 ## Returns
 

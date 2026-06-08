@@ -18,7 +18,7 @@ export default defineConfig(
       ]
     },
     apiDocs: {
-      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      entryPoints: [{ path: 'src/index.ts' }],
       outDir: 'docs/api',
       basePath: '/api',
       markdown: {

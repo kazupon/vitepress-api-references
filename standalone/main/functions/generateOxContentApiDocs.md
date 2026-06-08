@@ -10,11 +10,11 @@ export async function generateOxContentApiDocs(options: OxContentApiDocsOptions)
 
 ## Parameters
 
-- `options` ([`OxContentApiDocsOptions`](/standalone/default/interfaces/OxContentApiDocsOptions.md)) - API docs generation options.
+- `options` ([`OxContentApiDocsOptions`](/standalone/main/interfaces/OxContentApiDocsOptions.md)) - API docs generation options.
 
 ## Returns
 
-`Promise`\<[`OxContentApiDocsResult`](/standalone/default/interfaces/OxContentApiDocsResult.md)\> — Generated API docs files, metadata, diagnostics, and resolved options.
+`Promise`\<[`OxContentApiDocsResult`](/standalone/main/interfaces/OxContentApiDocsResult.md)\> — Generated API docs files, metadata, diagnostics, and resolved options.
 
 ## Examples
 

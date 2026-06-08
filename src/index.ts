@@ -6,7 +6,7 @@
  * import { withOxContentApiDocs } from 'vitepress-api-references'
  * ```
  *
- * @module default
+ * @module main
  */
 
 /**
