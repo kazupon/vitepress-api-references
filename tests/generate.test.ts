@@ -40,6 +40,49 @@ describe('generateOxContentApiDocs', () => {
     ).toBe(true)
   })
 
+  test('flattens single-entry typedoc navigation when requested', async () => {
+    root = await createFixtureRoot()
+    const result = await generateOxContentApiDocs({
+      root,
+      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      outDir: 'docs/api',
+      basePath: '/api',
+      markdown: {
+        pathStrategy: 'typedoc',
+        singleEntryRoot: 'flatten',
+        renderStyle: 'markdown',
+        indexFormat: 'table'
+      },
+      write: false
+    })
+
+    expect(Object.keys(result.files).sort()).toEqual([
+      'default/functions/greet.md',
+      'default/interfaces/GreetingOptions.md',
+      'index.md'
+    ])
+    expect(result.nav).toEqual([
+      expect.objectContaining({
+        title: 'Functions',
+        children: [
+          expect.objectContaining({
+            title: 'greet',
+            path: '/api/default/functions/greet'
+          })
+        ]
+      }),
+      expect.objectContaining({
+        title: 'Interfaces',
+        children: [
+          expect.objectContaining({
+            title: 'GreetingOptions',
+            path: '/api/default/interfaces/GreetingOptions'
+          })
+        ]
+      })
+    ])
+  })
+
   test('can skip filesystem writes', async () => {
     root = await createFixtureRoot()
     const result = await generateOxContentApiDocs({

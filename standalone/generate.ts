@@ -6,6 +6,7 @@ const result = await generateOxContentApiDocs({
   basePath: '/standalone',
   markdown: {
     pathStrategy: 'typedoc',
+    singleEntryRoot: 'flatten',
     renderStyle: 'markdown',
     indexFormat: 'table'
   }

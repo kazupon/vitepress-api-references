@@ -75,6 +75,7 @@ export async function generateOxContentApiDocs(
   const nav = generateDocsNavMetadataFromDocs(docs, {
     basePath: resolvedOptions.basePath,
     pathStrategy: resolvedOptions.markdown?.pathStrategy,
+    singleEntryRoot: resolvedOptions.markdown?.singleEntryRoot,
     groupOrder: resolvedOptions.markdown?.groupOrder,
     sort: resolvedOptions.markdown?.sort,
     sortEntryPoints: resolvedOptions.markdown?.sortEntryPoints,

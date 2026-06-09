@@ -10,7 +10,7 @@ export interface VitePressNavOptions
 
 ## Properties
 
-- `collapsed` _(optional)_ `property` `boolean` | ((`item`: [`ApiDocsNavItem`](/standalone/main/interfaces/ApiDocsNavItem.md), `depth`: `number`) =\> `boolean` | `undefined`) - Collapsed state for generated sidebar branches, or a resolver called per item. **Default:** `undefined`
+- `collapsed` _(optional)_ `property` `boolean` | ((`item`: [`ApiDocsNavItem`](/standalone/main/interfaces/ApiDocsNavItem.md), `depth`: `number`) =\> `boolean` | `undefined`) - Collapsed state for generated sidebar branches, or a resolver called per item. A boolean value also controls the top-level section when `section.collapsed` is omitted. **Default:** `undefined`
 - `enabled` _(optional)_ `property` `boolean` - Whether generated navigation integration is enabled. **Default:** `true`
 - `exportName` _(optional)_ `property` `string` - Named export used in the generated navigation code file. **Default:** `'apiDocsNav'`
 - `insert` _(optional)_ `property` `VitePressSidebarInsert` - Positioning strategy used when merging generated items into an existing sidebar. **Default:** `'append'`

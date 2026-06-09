@@ -10,12 +10,7 @@ minimumReleaseAgeExclude:
   - '@kazupon/vp-config'
   - '@ox-jsdoc/**'
   - ox-jsdoc
-  - '@ox-content/binding-darwin-arm64@2.63.0'
-  - '@ox-content/binding-darwin-x64@2.63.0'
-  - '@ox-content/binding-linux-arm64-gnu@2.63.0'
-  - '@ox-content/binding-linux-x64-gnu@2.63.0'
-  - '@ox-content/binding-win32-x64-msvc@2.63.0'
-  - '@ox-content/napi@2.63.0'
+  - '@ox-content/**'
 overrides:
   vitepress>vite: 'catalog:'
   vitest: 'catalog:'
