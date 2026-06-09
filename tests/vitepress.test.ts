@@ -42,6 +42,109 @@ test('withOxContentApiDocs generates docs, merges sidebar, and registers plugin'
   }
 })
 
+test('withOxContentApiDocs flattens single-entry typedoc sidebar when requested', async () => {
+  let root: string | undefined
+
+  try {
+    root = await createFixtureRoot()
+    const config = await withOxContentApiDocs({
+      themeConfig: {
+        sidebar: [{ text: 'API References' }]
+      },
+      apiDocs: {
+        root,
+        entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+        outDir: 'docs/api',
+        basePath: '/api',
+        markdown: {
+          pathStrategy: 'typedoc',
+          singleEntryRoot: 'flatten'
+        },
+        nav: {
+          section: { text: 'API References' },
+          insert: 'replace',
+          replaceText: 'API References'
+        },
+        write: false
+      }
+    })
+
+    expect(config.themeConfig?.sidebar).toEqual([
+      {
+        text: 'API References',
+        items: [
+          expect.objectContaining({
+            text: 'Variables',
+            items: [
+              expect.objectContaining({ text: 'value', link: '/api/default/variables/value' })
+            ]
+          })
+        ]
+      }
+    ])
+    const sidebar = config.themeConfig?.sidebar
+    expect(Array.isArray(sidebar)).toBe(true)
+    const apiSection = (sidebar as { items: Record<string, unknown>[] }[])[0]
+    expect(apiSection.items[0]).not.toHaveProperty('link')
+  } finally {
+    if (root) {
+      await fs.rm(root, { recursive: true, force: true })
+    }
+  }
+})
+
+test('withOxContentApiDocs keeps branch links for generated index routes', async () => {
+  let root: string | undefined
+
+  try {
+    root = await createFixtureRoot()
+    const config = await withOxContentApiDocs({
+      themeConfig: {
+        sidebar: [{ text: 'API References' }]
+      },
+      apiDocs: {
+        root,
+        entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+        outDir: 'docs/api',
+        basePath: '/api',
+        markdown: {
+          pathStrategy: 'typedoc'
+        },
+        nav: {
+          section: { text: 'API References' },
+          insert: 'replace',
+          replaceText: 'API References'
+        },
+        write: false
+      }
+    })
+
+    expect(config.themeConfig?.sidebar).toEqual([
+      {
+        text: 'API References',
+        items: [
+          expect.objectContaining({
+            text: 'default',
+            link: '/api/default',
+            items: [
+              expect.objectContaining({
+                text: 'Variables',
+                items: [
+                  expect.objectContaining({ text: 'value', link: '/api/default/variables/value' })
+                ]
+              })
+            ]
+          })
+        ]
+      }
+    ])
+  } finally {
+    if (root) {
+      await fs.rm(root, { recursive: true, force: true })
+    }
+  }
+})
+
 test('withOxContentApiDocs skips disabled config', async () => {
   const config = await withOxContentApiDocs({ apiDocs: false })
 

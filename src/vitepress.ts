@@ -9,7 +9,7 @@ import { createVitePressSidebarSection, mergeVitePressSidebar } from './sidebar.
 import { createApiDocsVitePlugin } from './watch.ts'
 
 import type { UserConfig } from 'vitepress'
-import type { OxContentApiDocsOptions } from './types.ts'
+import type { OxContentApiDocsOptions, VitePressSidebarItem } from './types.ts'
 
 declare module 'vitepress' {
   interface UserConfig {
@@ -71,7 +71,10 @@ export async function withOxContentApiDocs(
   }
 
   const result = await generateOxContentApiDocs(apiDocsOptions)
-  const sidebarSection = createVitePressSidebarSection(result.nav, result.resolvedOptions.nav)
+  const sidebarSection = removeMissingBranchLinks(
+    createVitePressSidebarSection(result.nav, result.resolvedOptions.nav),
+    createGeneratedRoutePathSet(result.files, result.resolvedOptions.basePath)
+  )
 
   config.themeConfig ??= {}
   config.themeConfig.sidebar = mergeVitePressSidebar(
@@ -89,4 +92,45 @@ export async function withOxContentApiDocs(
   ]
 
   return config
+}
+
+function createGeneratedRoutePathSet(files: Record<string, string>, basePath: string): Set<string> {
+  const routes = new Set<string>()
+  for (const filePath of Object.keys(files)) {
+    if (!filePath.endsWith('.md')) {
+      continue
+    }
+
+    const routePath = filePath.slice(0, -'.md'.length)
+    if (routePath === 'index') {
+      routes.add(normalizeRoutePath(basePath))
+    } else if (routePath.endsWith('/index')) {
+      routes.add(normalizeRoutePath(`${basePath}/${routePath.slice(0, -'/index'.length)}`))
+    } else {
+      routes.add(normalizeRoutePath(`${basePath}/${routePath}`))
+    }
+  }
+  return routes
+}
+
+function removeMissingBranchLinks(
+  item: VitePressSidebarItem,
+  routes: ReadonlySet<string>
+): VitePressSidebarItem {
+  const next: VitePressSidebarItem = { ...item }
+  if (item.items) {
+    next.items = item.items.map(child => removeMissingBranchLinks(child, routes))
+  }
+
+  if (next.items?.length && next.link && !routes.has(normalizeRoutePath(next.link))) {
+    delete next.link
+  }
+
+  return next
+}
+
+function normalizeRoutePath(routePath: string): string {
+  const withoutMarkdown = routePath.endsWith('.md') ? routePath.slice(0, -'.md'.length) : routePath
+  const normalized = withoutMarkdown.startsWith('/') ? withoutMarkdown : `/${withoutMarkdown}`
+  return normalized.length > 1 ? normalized.replace(/\/+$/, '') : normalized
 }

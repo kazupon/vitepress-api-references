@@ -24,6 +24,7 @@ export default defineConfig(
       basePath: '/api',
       markdown: {
         pathStrategy: 'typedoc',
+        singleEntryRoot: 'flatten',
         renderStyle: 'markdown',
         indexFormat: 'table',
         typeDeclarationFormat: 'table',
