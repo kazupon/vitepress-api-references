@@ -12,6 +12,9 @@ export default defineConfig(
     description: 'Enable JSDoc API Reference',
     base: '/vitepress-api-references/',
     themeConfig: {
+      socialLinks: [
+        { icon: 'github', link: 'https://github.com/kazupon/vitepress-api-references' }
+      ],
       nav: [{ text: 'API References', link: '/api/' }],
       sidebar: [
         { text: 'Overview', link: '/' },
