@@ -22,8 +22,8 @@ importers:
   .:
     dependencies:
       '@ox-content/napi':
-        specifier: ^2.65.0
-        version: 2.65.0
+        specifier: ^2.66.0
+        version: 2.66.0
     devDependencies:
       '@kazupon/vp-config':
         specifier: ^0.3.2
@@ -149,35 +149,35 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@ox-content/binding-darwin-arm64@2.65.0':
-    resolution: {integrity: sha512-MHKIxLHbEz8n9Gn95BlCuGWGXZkBHwvFc0e/uR5N2tpU78vBxRu6GlNnWzjYvH4GBrF9T09JX1aV4DEQlTnRHg==}
+  '@ox-content/binding-darwin-arm64@2.66.0':
+    resolution: {integrity: sha512-o5XRQQmu9kSfE/K8151vtPHwhk0EMBVjpI7o7i8CpSJOCj92ud/H8Qvko5vYSpCWf9Tfb/g/OLY3yKkbK/QLyQ==}
     cpu: [arm64]
     os: [darwin]
 
-  '@ox-content/binding-darwin-x64@2.65.0':
-    resolution: {integrity: sha512-qGbWYa7T4KvuNsitKupGvDrFr+TXIyW+E8XYGofvdQkeWT0L8v30AhnE4xJYIsMb8GVPLI9fu+W0oaXFw5rjxQ==}
+  '@ox-content/binding-darwin-x64@2.66.0':
+    resolution: {integrity: sha512-LYV2R4tWYsPxyJCAUQ1SSQwBpy93JehYGI2/mjTwOQolbXwCl2kBJ/Jn+/IW+F7Zdv5s989ILpwLHyVBchjPKg==}
     cpu: [x64]
     os: [darwin]
 
-  '@ox-content/binding-linux-arm64-gnu@2.65.0':
-    resolution: {integrity: sha512-6U3TkiikD7fZV35ncAvUoXS8ZUAidNUAlBfHjTAUbsRDhYvyGJCgGUU2XJzvm5nqgEqHLAB1wQ4D12/AuBhhng==}
+  '@ox-content/binding-linux-arm64-gnu@2.66.0':
+    resolution: {integrity: sha512-TsiG9S3qeYPg/geCO9l4p0+acXY5a7aXBO6FhfgBLxLaqn+VhSRvy/85f1f68hGaPAzU9h2wz9A5S75tVgv2CQ==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@ox-content/binding-linux-x64-gnu@2.65.0':
-    resolution: {integrity: sha512-WW+AvhnQcve/wbtJQPJgDDKtoRz776T0wGI20TcpSWr3ZcGXlOr7yjQuTtqjHoBSVM0W8ZwP77LSTMoIjv8vnA==}
+  '@ox-content/binding-linux-x64-gnu@2.66.0':
+    resolution: {integrity: sha512-EgOU3UEncz0/jh+rfX7mOAhwZ8KaGHNXD+2qFuwEMdj3P4wdyY0gs2VLk+QGoryduolnlDOEqUkL1UC4MdiW4Q==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@ox-content/binding-win32-x64-msvc@2.65.0':
-    resolution: {integrity: sha512-xJmpgKskBHgmvXx96waSDE8igSM4bp/bIjDOk4KrK0sl+I/AJQZAVEO+uYer1yscOpI33wUrjVRtxF/puuhTiw==}
+  '@ox-content/binding-win32-x64-msvc@2.66.0':
+    resolution: {integrity: sha512-9g80oE4JrtscB7J1aFob6kW8sw8nsXeQ9y8x27hBcCp/WUF8BlM6lTvrnevKKZa5d+vFjSaBrLw41DklSlSlTg==}
     cpu: [x64]
     os: [win32]
 
-  '@ox-content/napi@2.65.0':
-    resolution: {integrity: sha512-ncwMJFVmw2MFBtvOj1Mh+ncbtON2ro2hHFFBn9XZP9hzHg19E73+NPfoF7yAhPyFupLRJzi9hKOnXhNQmlWbMQ==}
+  '@ox-content/napi@2.66.0':
+    resolution: {integrity: sha512-LthpiE2ETPlFN3Bma86JtNJTB6qOij+ccGZ93aU3xAmP/QORnoq0YOtG8Ky251jBUQJb/zkasUuWsywnGbc24w==}
 
   '@ox-jsdoc/binding-darwin-arm64@0.0.19':
     resolution: {integrity: sha512-D8+rxpv3Gn4/URbcDlmupwbrwIHPPhdpagn6TGF7xYRS5up2F47qRlmuhzUAwXMXQdem+DX3Y/qumvXL2qPknQ==}
@@ -1954,28 +1954,28 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
-  '@ox-content/binding-darwin-arm64@2.65.0':
+  '@ox-content/binding-darwin-arm64@2.66.0':
     optional: true
 
-  '@ox-content/binding-darwin-x64@2.65.0':
+  '@ox-content/binding-darwin-x64@2.66.0':
     optional: true
 
-  '@ox-content/binding-linux-arm64-gnu@2.65.0':
+  '@ox-content/binding-linux-arm64-gnu@2.66.0':
     optional: true
 
-  '@ox-content/binding-linux-x64-gnu@2.65.0':
+  '@ox-content/binding-linux-x64-gnu@2.66.0':
     optional: true
 
-  '@ox-content/binding-win32-x64-msvc@2.65.0':
+  '@ox-content/binding-win32-x64-msvc@2.66.0':
     optional: true
 
-  '@ox-content/napi@2.65.0':
+  '@ox-content/napi@2.66.0':
     optionalDependencies:
-      '@ox-content/binding-darwin-arm64': 2.65.0
-      '@ox-content/binding-darwin-x64': 2.65.0
-      '@ox-content/binding-linux-arm64-gnu': 2.65.0
-      '@ox-content/binding-linux-x64-gnu': 2.65.0
-      '@ox-content/binding-win32-x64-msvc': 2.65.0
+      '@ox-content/binding-darwin-arm64': 2.66.0
+      '@ox-content/binding-darwin-x64': 2.66.0
+      '@ox-content/binding-linux-arm64-gnu': 2.66.0
+      '@ox-content/binding-linux-x64-gnu': 2.66.0
+      '@ox-content/binding-win32-x64-msvc': 2.66.0
 
   '@ox-jsdoc/binding-darwin-arm64@0.0.19':
     optional: true
