@@ -58,7 +58,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@ox-content/napi": "^2.66.0"
+    "@ox-content/napi": "^2.69.0"
   },
   "devDependencies": {
     "@kazupon/vp-config": "^0.3.2",
