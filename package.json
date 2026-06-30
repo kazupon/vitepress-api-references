@@ -61,7 +61,7 @@
     "@ox-content/napi": "^2.69.0"
   },
   "devDependencies": {
-    "@kazupon/vp-config": "^0.3.2",
+    "@kazupon/vp-config": "^0.5.0",
     "@types/node": "^25.9.1",
     "@typescript/native-preview": "7.0.0-dev.20260610.1",
     "bumpp": "^11.1.0",
