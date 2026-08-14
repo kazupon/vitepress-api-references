@@ -65,7 +65,7 @@
     "@types/node": "^25.9.1",
     "@typescript/native-preview": "7.0.0-dev.20260610.1",
     "bumpp": "^11.1.0",
-    "gh-changelogen": "^0.2.8",
+    "gh-changelogen": "^2.0.0",
     "knip": "^6.16.0",
     "oxc-minify": "^0.135.0",
     "pkg-pr-new": "^0.0.75",
