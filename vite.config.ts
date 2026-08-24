@@ -11,9 +11,7 @@ export default defineConfig({
   },
   pack: {
     entry: ['src/index.ts'],
-    dts: {
-      tsgo: true
-    },
+    dts: true,
     exports: true
   },
   lint: defineLintConfig({

@@ -3,7 +3,7 @@ import type { KnipConfig } from 'knip'
 const config: KnipConfig = {
   entry: ['src/index.ts'],
   ignore: ['tests/**/*.test.ts', 'tests/fixtures/**', 'docs/.vitepress/config.ts'],
-  ignoreDependencies: ['@typescript/native-preview', 'pkg-pr-new'],
+  ignoreDependencies: ['pkg-pr-new'],
   rules: {
     catalog: 'off'
   }

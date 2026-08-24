@@ -57,18 +57,17 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@ox-content/napi": "^2.69.0"
+    "@ox-content/napi": "^2.90.0"
   },
   "devDependencies": {
     "@kazupon/vp-config": "^0.5.1",
-    "@types/node": "^25.9.1",
-    "@typescript/native-preview": "7.0.0-dev.20260610.1",
-    "bumpp": "^11.1.0",
+    "@types/node": "^25.9.5",
+    "bumpp": "^12.2.1",
     "gh-changelogen": "^2.0.2",
-    "knip": "^6.16.0",
+    "knip": "^6.32.2",
     "oxc-minify": "^0.135.0",
     "pkg-pr-new": "^0.0.75",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
     "vitepress": "2.0.0-alpha.17"
