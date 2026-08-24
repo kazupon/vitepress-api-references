@@ -53,8 +53,7 @@
     "test:fixtures": "vp exec vitepress build tests/fixtures/basic/docs",
     "check": "vp check && knip",
     "prepublishOnly": "vp run build",
-    "release": "bumpp --commit \"release: v%s\" --all --push --tag",
-    "changelog": "gh-changelogen --repo=kazupon/vitepress-api-references",
+    "release": "bumpp",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -65,7 +64,7 @@
     "@types/node": "^25.9.1",
     "@typescript/native-preview": "7.0.0-dev.20260603.1",
     "bumpp": "^11.1.0",
-    "gh-changelogen": "^0.2.8",
+    "gh-changelogen": "^2.0.2",
     "knip": "^6.16.0",
     "oxc-minify": "^0.134.0",
     "pkg-pr-new": "^0.0.75",

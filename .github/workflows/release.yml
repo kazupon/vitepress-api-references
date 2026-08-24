@@ -1,10 +1,9 @@
 name: Release
 
 # Triggers:
-#   - tag push (v*): normal release flow runs npm/jsr publish in parallel,
-#     then release-notes on success of both.
-#   - workflow_dispatch: fallback recovery. Pick which job to run for an
-#     existing tag (npm-publish / release-notes / all).
+#   - tag push (v*): publish to npm, then create the GitHub Release.
+#     CHANGELOG.md is already part of the tagged commit from `vp run release`.
+#   - workflow_dispatch: retry either job for an existing tag.
 on:
   push:
     branches-ignore:
@@ -28,18 +27,26 @@ on:
         required: true
 
 env:
+  CI: true
   TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  VITE_GIT_HOOKS: '0'
 
 permissions: {}
 
+concurrency:
+  group: release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
 jobs:
   npm-publish:
+    name: Publish to npm
     if: >-
       github.event_name == 'push' || (github.event_name == 'workflow_dispatch' &&
         (inputs.job == 'all' || inputs.job == 'npm-publish'))
 
 
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
       id-token: write # npm OIDC trusted publisher
@@ -62,7 +69,7 @@ jobs:
         run: npm install -g npm@11
 
       - name: Install dependencies
-        run: vp install --no-frozen-lockfile
+        run: vp install --frozen-lockfile
 
       - name: Build
         run: vp pack
@@ -70,15 +77,15 @@ jobs:
       - name: Publish to npm
         # OIDC trusted publisher: requires id-token: write, no NPM_TOKEN needed.
         # Provenance is automatically attached via OIDC.
-        run: npm publish --provenance --access public --no-git-checks --tag latest
+        run: npm publish --provenance --access public --tag latest
 
   release-notes:
+    name: Create GitHub Release
     needs:
       - npm-publish
     if: >-
       always() && (
-        (github.event_name == 'push' &&
-          needs.npm-publish.result == 'success') ||
+        (github.event_name == 'push' && needs.npm-publish.result == 'success') ||
         (github.event_name == 'workflow_dispatch' && inputs.job == 'release-notes') ||
         (github.event_name == 'workflow_dispatch' && inputs.job == 'all' &&
           needs.npm-publish.result == 'success')
@@ -86,26 +93,16 @@ jobs:
 
 
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
-      contents: write # GitHub Release creation + CHANGELOG push
+      contents: write # GitHub Release creation
 
     steps:
       - name: Checkout codes
-        # zizmor: ignore[artipacked] -- git-auto-commit-action needs persisted credentials to push.
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Setup Vite Plus
-        uses: voidzero-dev/setup-vp@2dec1e33f4ab2c6d5bce1b0c4607961bb1a3f7a1 # v1.12.0
-        with:
-          node-version: 22
-          cache: true
-          run-install: false
-
-      - name: Install dependencies
-        run: vp install --no-frozen-lockfile
+          ref: ${{ env.TAG }}
+          persist-credentials: false
 
       - name: Create GitHub Release
         run: |
@@ -116,15 +113,3 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sync changelog from GitHub Releases
-        run: vp exec gh-changelogen --repo=kazupon/vitepress-api-references --tag="$TAG"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
-        with:
-          branch: main
-          file_pattern: CHANGELOG.md
-          commit_message: 'chore: generate changelog'
