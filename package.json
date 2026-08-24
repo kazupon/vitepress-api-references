@@ -54,7 +54,7 @@
     "check": "vp check && knip",
     "prepublishOnly": "vp run build",
     "release": "node scripts/release-preflight.ts && bumpp",
-    "prepare": "vp config"
+    "prepare": "vp config --no-agent"
   },
   "dependencies": {
     "@ox-content/napi": "^2.90.0"

@@ -27,6 +27,6 @@ export default defineConfig({
     regexp: {}
   }),
   fmt: defineFmtConfig({
-    ignorePatterns: ['CHANGELOG.md', 'standalone/**/*.md', 'docs/**/*.md']
+    ignorePatterns: ['CHANGELOG.md', 'AGENTS.md', 'CLAUDE.md', 'standalone/**/*.md', 'docs/**/*.md']
   })
 })
