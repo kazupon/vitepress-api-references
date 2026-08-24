@@ -53,7 +53,7 @@
     "test:fixtures": "vp exec vitepress build tests/fixtures/basic/docs",
     "check": "vp check && knip",
     "prepublishOnly": "vp run build",
-    "release": "bumpp",
+    "release": "node scripts/release-preflight.ts && bumpp",
     "prepare": "vp config"
   },
   "dependencies": {
