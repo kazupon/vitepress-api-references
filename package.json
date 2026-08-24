@@ -65,7 +65,7 @@
     "bumpp": "^12.2.1",
     "gh-changelogen": "^2.0.2",
     "knip": "^6.32.2",
-    "oxc-minify": "^0.135.0",
+    "oxc-minify": "^0.144.0",
     "pkg-pr-new": "^0.0.88",
     "typescript": "^7.0.2",
     "vite": "catalog:",
