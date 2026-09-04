@@ -57,7 +57,7 @@
     "prepare": "vp config --no-agent"
   },
   "dependencies": {
-    "@ox-content/napi": "3.0.0-alpha.10"
+    "@ox-content/napi": "3.0.0-alpha.13"
   },
   "devDependencies": {
     "@kazupon/vp-config": "^0.5.1",
