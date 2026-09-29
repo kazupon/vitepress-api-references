@@ -11,3 +11,4 @@ fixtures/basic/docs/.vitepress/dist
 !.vscode/
 !.vscode/settings.json
 !.vscode/extensions.json
+.vitest/
