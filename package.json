@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@kazupon/vp-config": "^1.0.0",
-    "@types/node": "^25.9.5",
+    "@types/node": "^26.0.0",
     "bumpp": "^12.2.1",
     "gh-changelogen": "^2.0.2",
     "knip": "^6.32.2",
