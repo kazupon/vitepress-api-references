@@ -54,12 +54,7 @@ export async function generateOxContentApiDocs(
     tags: module.tags,
     entries: module.entries.map(entry => ({
       ...entry,
-      tags: entry.tags
-        ? Object.entries(entry.tags).map(([tag, value]) => ({
-            tag,
-            value
-          }))
-        : undefined,
+      tags: entry.tagList,
       hasBody: entry.hasBody ?? false
     }))
   }))

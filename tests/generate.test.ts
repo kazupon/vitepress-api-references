@@ -83,6 +83,43 @@ describe('generateOxContentApiDocs', () => {
     ])
   })
 
+  test('keeps every value of repeated JSDoc tags', async () => {
+    root = await createFixtureRoot()
+    await fs.writeFile(
+      path.join(root, 'src/index.ts'),
+      [
+        '/**',
+        ' * Resolves a value.',
+        ' *',
+        ' * @remarks First remark.',
+        ' * @remarks Second remark.',
+        ' * @see https://example.com/first',
+        ' * @see https://example.com/second',
+        ' */',
+        'export function resolve(): void {}',
+        ''
+      ].join('\n')
+    )
+
+    const result = await generateOxContentApiDocs({
+      root,
+      entryPoints: [{ path: 'src/index.ts', name: 'default' }],
+      outDir: 'docs/api',
+      basePath: '/api',
+      markdown: {
+        pathStrategy: 'typedoc',
+        renderStyle: 'markdown'
+      },
+      write: false
+    })
+
+    const page = result.files['default/functions/resolve.md']
+    expect(page).toContain('First remark.')
+    expect(page).toContain('Second remark.')
+    expect(page).toContain('https://example.com/first')
+    expect(page).toContain('https://example.com/second')
+  })
+
   test('can skip filesystem writes', async () => {
     root = await createFixtureRoot()
     const result = await generateOxContentApiDocs({
